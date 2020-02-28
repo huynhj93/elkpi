@@ -21,11 +21,11 @@
     get_url:
       url: "{{ java8link }}"
       headers: "Cookie:oraclelicense=accept-securebackup-cookie"
-      dest: /home/{{ ansible_user }}
+      dest: /home/pi
       force: no
     when: install_type == "download-oracle"
     # creates not supported
-    # creates: /home/{{ ansible_user }}/{{ java8link_filename }}
+    # creates: /home/pi/{{ java8link_filename }}
 
   - name: Java | create /opt/jdk
     file:
@@ -36,7 +36,7 @@
   - name: Java | unzip/untar to /opt/jdk/jdk-XXX
     unarchive:
       remote_src: yes
-      src: /home/{{ ansible_user }}/{{ java8link_filename }}
+      src: /home/pi/{{ java8link_filename }}
       dest: /opt/jdk/
     when: install_type == "download-oracle"
 
