@@ -11,13 +11,13 @@
   - name: Install | download deb file
     get_url:
       url: "{{ elasticsearch_deb_url }}"
-      dest: /home/{{ ansible_user }}
+      dest: /home/pi
       force: no
     when: install_type == "download-oracle"  or install_type == "openjdk"
 
   - name: Install | install from downloaded deb
     apt:
-      deb: /home/{{ ansible_user }}/{{ elasticsearch_deb_filename }}
+      deb: /home/pi/{{ elasticsearch_deb_filename }}
     when: install_type == "download-oracle" or install_type == "openjdk"
 
   - name: Config | jvm heap size min
