@@ -1,0 +1,19 @@
+# ---
+# - block:
+#     - name: Java Download
+#       get_url:
+#         url: {{ java8link }}
+#         dest: /home/pi
+#         headers: "Cookie:oraclelicense=accept-securebackup-cookie"
+#     - when: download_opts is "download_oracle" 
+  
+#     - name: Create /opt/jdk
+#       file:
+#         path: /opt/jdk/{{ java8link_dirname }}
+#         state: directory
+#     - name: unzip to java dir
+#       unarchive: 
+#         src: /home/pi/{{ java8link_filename }}
+#         dest: /opt/jdk
+#     - name: correct java version selected:
+#       alternatives: name=java path="path to java bin" link=pathto link
